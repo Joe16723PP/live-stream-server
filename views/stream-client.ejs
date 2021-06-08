@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/radio-btn.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+    <title>Streaming client</title>
+  </head>
+  <body>
+    <script
+      src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.socket.io/4.1.1/socket.io.min.js"
+      integrity="sha384-cdrFIqe3RasCMNE0jeFG9xJHog/tgOVC1E9Lzve8LQN1g5WUHo0Kvk1mawWjxX7a"
+      crossorigin="anonymous"
+    ></script>
+    <main>
+      <section class="live-container">
+        <video id="videoElement" controls></video>
+        <div class="description-container">
+          <h2>Live description</h2>
+          <span>Host by @accountId</span>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            minima mollitia deleniti id, quos similique velit consequatur neque
+            nam corporis ullam ratione illum aperiam fugit pariatur numquam
+            nulla quod cum!
+          </p>
+        </div>
+      </section>
+      <section class="chat-container">
+        <div class="chat-box">
+          <div class="header">
+            <h4>Live chat</h4>
+          </div>
+          <div class="chat-content">
+            <div class="message-box">
+              <div class="avatar">
+                <img src="/image/avatar-1.png" alt="admin" />
+              </div>
+              <div class="message-group">
+                <div class="sender">admin bot (auto message)</div>
+                <div class="msg">
+                  welcome to live stream client, starting at .....
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="message-input" id="formInput">
+          <input type="text" name="message-input" id="messageInput" />
+          <button id="sendMsgBtn" type="submit">SEND</button>
+        </form>
+      </section>
+    </main>
+    <div class="dialog show">
+      <div class="dialog-content">
+        <img src="/image/avatar-1.png" alt="icon" width="64" height="64" />
+        <h3>Want to join our live ?</h3>
+        <input type="text" id="userName" placeholder="enter your name..." />
+        <hr />
+        <h3>choose your avatar</h3>
+        <div class="avatars-container">
+          <% for( let index = 0; index < avatarList.length; index++ ) { %>
+          <div class="radio-container">
+            <input type="radio" name="avatar" value="<%=avatarList[index]%>" />
+            <label>
+              <img src="/image/<%=avatarList[index]%>" />
+            </label>
+          </div>
+          <% } %>
+        </div>
+        <br />
+        <button id="joinLiveBtn">join live</button>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
